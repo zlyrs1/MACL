@@ -1,0 +1,77 @@
+seed = 555
+name = 'Houston'
+hsi_dataset_dir = "./datasets/Houston/HSI.mat"
+lidar_dataset_dir = "./datasets/Houston/LiDAR.mat"
+gt_dataset_dir = "./datasets/Houston/gt.mat"
+hsi_pca_dataset_dir = "./datasets/Houston/HSI_PCA.mat"
+
+# --------------------   Image information   --------------------
+H = 349
+W = 1905
+lidar_bands_num = 1
+hsi_bands_num = 144
+class_num = 15
+patch_lidar = 21  # Lidar patchSize
+patch_hsi = 7     # HSI patchSize
+
+# --------------------   stage 1：Pre-training   --------------------
+cl_epochs = 50
+cl_batch_size = 1024
+cl_num_workers = 3
+lr_base = 1.2
+m_rate = 0.99
+s_lambda = 2
+
+# -------- E_SPA network --------
+en_spa_input_channel = lidar_bands_num
+en_spa_channels = [16, 32, 64, 64]
+
+# -------- E_SPEC network --------
+en_spec_input_channel = hsi_bands_num
+en_spec_channels = [128, 256, 512, 512]
+
+# -------- Predictor network --------
+mlp_hidden_size = 4096
+projection_size = 512
+
+
+# --------------------    stage 2： Classification   --------------------
+train_per_class_Num = 10
+train_samples = class_num * train_per_class_Num
+
+c_epochs = 500
+c_train_batch_size = 32
+c_test_batch_size = 2048
+
+c_lr_encoder = 0.005
+c_lr = 0.05
+
+fea_dims = en_spa_channels[-1] + en_spec_channels[-1]
+
+
+# --------------------    可视化相关配置   --------------------
+# 用于显示各类地物的颜色表
+palette = {
+            0: (0, 0, 0),         # background
+            1: (110, 138, 61),    # Health grass
+            2: (51, 153, 51),     # Stressed grass
+            3: (113, 198, 113),   # Synthetic grass
+            4: (0, 102, 52),      # Trees
+            5: (154, 102, 0),     # Soil
+            6: (177, 211, 236),   # Water
+            7: (0, 51, 204),      # Residential
+            8: (137, 102, 204),   # Commercial
+            9: (255, 255, 0),     # Road
+            10: (254, 204, 203),  # Highway
+            11: (255, 192, 128),  # Railway
+            12: (204, 170, 125),  # Parking Lot 1
+            13: (205, 149, 12),   # Parking Lot 2
+            14: (139, 61, 48),    # Tennis court
+            15: (165, 43, 42),    # Running track
+            16: (0, 255, 255)     # selected train samples
+          }
+
+# ------ print threshold ------
+best_acc = 0.88
+
+print_oa = 0.92
