@@ -149,5 +149,5 @@ If MACL is helpful for your research, please cite our work:
 For questions about the paper or code, please contact:
 
 ```text
-liangyuzhou@buaa.edu.cn
+zhoulyvln@buaa.edu.cn
 ```
