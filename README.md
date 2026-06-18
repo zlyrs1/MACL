@@ -7,7 +7,7 @@ School of Astronautics, Beihang University
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-1.x-ee4c2c.svg)](https://pytorch.org/)
-[![Paper](https://img.shields.io/badge/Paper-MACL-lightgrey.svg)](https://github.com/zlyrs1/MACL)
+[![Paper](https://img.shields.io/badge/Paper-MACL-lightgrey.svg)](https://doi.org/10.1016/j.imavis.2025.105669)
 
 ## Abstract
 
@@ -24,13 +24,6 @@ MACL contains three main components:
 - **Modal-aligned sample pair construction**: builds spectral and spatial positive pairs by using the complementary strengths of HSI and LiDAR instead of directly forcing heterogeneous modalities to align.
 - **Spectral-spatial dual-branch contrastive learning**: pre-trains a LiDAR-grounded spectral branch and an HSI-grounded spatial branch with BYOL-style online/target networks.
 - **Multimodal Attentional Feature Fusion (MAFF)**: adaptively fuses spatial and spectral multimodal features before the final classifier.
-
-## TODOs
-
-- [x] Release MACL training and evaluation code.
-- [x] Provide configuration files for MUUFL, Trento, and Houston2013.
-- [ ] Release pretrained checkpoints.
-- [ ] Add public dataset download links.
 
 ## Prerequisites
 
@@ -138,10 +131,16 @@ Adjust these values according to your GPU memory and experimental protocol.
 If MACL is helpful for your research, please cite our work:
 
 ```bibtex
-@article{zhou2026macl,
+@article{zhou2025macl,
   title={Modal-aware contrastive learning for hyperspectral and LiDAR classification},
   author={Zhou, Liangyu and Luo, Xiaoyan and Xue, Rui},
-  year={2026}
+  journal={Image and Vision Computing},
+  volume={162},
+  pages={105669},
+  year={2025},
+  issn={0262-8856},
+  doi={10.1016/j.imavis.2025.105669},
+  url={https://doi.org/10.1016/j.imavis.2025.105669}
 }
 ```
 
