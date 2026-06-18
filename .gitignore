@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# IDE
+.idea/
+.vscode/
+
+# Training artifacts
+checkpoints/
+results/
+visualize/
+wandb/
+
+# Local scratch files
+*.log
